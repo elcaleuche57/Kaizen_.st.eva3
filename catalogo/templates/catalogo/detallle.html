@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ object.nombre }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <span class="badge bg-secondary">{{ object.categoria.nombre }}</span>
+        <h2 class="mt-2">{{ object.nombre }}</h2>
+        <p>{{ object.descripcion|default:"Sin descripción." }}</p>
+        <ul class="list-unstyled">
+            <li><strong>Precio:</strong> ${{ object.precio }}</li>
+            <li><strong>Talla:</strong> {{ object.talla }}</li>
+            <li><strong>Stock:</strong> {{ object.stock }}</li>
+            <li><strong>Ingreso:</strong> {{ object.fecha_ingreso }}</li>
+        </ul>
+        <a href="{% url 'lista' %}" class="btn btn-outline-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}
